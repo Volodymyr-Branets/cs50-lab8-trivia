@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function(){
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#answer1').innerHTML = 'Yep, that’s right!';
+                });
+
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++){
+                    incorrects[i].addEventListener('click', function(){
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#answer1').innerHTML = 'No it’s not full corect, try one more time!';
+                    });
+                }
+
+                document.querySelector('#check-btn').addEventListener('click', function(){
+                    let answer = document.querySelector('#answer-field');
+                    if (answer.value == 4){
+                        answer.style.background = 'green';
+                        document.querySelector('#answer2').innerHTML = 'Yep, that’s right!';
+                    }
+                    else {
+                        answer.style.background = 'red';
+                        document.querySelector('#answer2').innerHTML = 'No, you’re really? Try again!';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What the best way to communicate whith your audience in social networks?</h3>
+
+                <button class="incorrect">Phone calls</button>
+                <button class="correct">Media content</button>
+                <button class="incorrect">Hacking them</button>
+                <button class="incorrect">Messages</button>
+                <button class="incorrect">emails</button>
+
+                <p id="answer1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Let’s see how good you know math. What would be result "2 x 2 = ?"</h3>
+                    <input type="text" id="answer-field"></input>
+                    <button id="check-btn">Check</button>
+
+                    <p id="answer2"></p>
+            </div>
+        </div>
+    </body>
+</html>
