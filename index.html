@@ -11,6 +11,8 @@
                 let correct = document.querySelector('.correct');
                 correct.addEventListener('click', function(){
                     correct.style.backgroundColor = 'green';
+                    correct.style.color = 'white';
+                    correct.style.cursor = 'not-allowed';
                     document.querySelector('#answer1').innerHTML = 'Yep, that’s right!';
                 });
 
@@ -18,6 +20,8 @@
                 for (let i = 0; i < incorrects.length; i++){
                     incorrects[i].addEventListener('click', function(){
                         incorrects[i].style.backgroundColor = 'red';
+                        incorrects[i].style.color = 'white';
+                        incorrects[i].style.cursor = 'not-allowed';
                         document.querySelector('#answer1').innerHTML = 'No it’s not full corect, try one more time!';
                     });
                 }
